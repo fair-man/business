@@ -6731,6 +6731,12 @@ button.close {
   background-color: #000000;
   color: #ffffff;
 }
+.header .header__title {
+  font-size: 36px;
+}
+.header .header__title:hover {
+  text-decoration: none;
+}
 .main__description-list .main__description-list_item {
   list-style-type: none;
   position: relative;
