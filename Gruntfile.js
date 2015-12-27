@@ -54,10 +54,9 @@ module.exports = function(grunt) {
                 },
                     {
                     expand : true,
-                    flatten : true,
-                    src : '<%= globalConfig.bower_path %>/bootstrap/dist/css/bootstrap.min.css',
-                    dest : '<%= globalConfig.dist %>/css',
-                    filter : 'isFile'
+                    cwd: '<%= globalConfig.bower_path %>/bootstrap/less/',
+                    src : ['**'],
+                    dest : '<%= globalConfig.src %>/less/bootstrap/'
                 },{
                     expand : true,
                     flatten : true,
@@ -104,7 +103,7 @@ module.exports = function(grunt) {
                 padding: 2,
                 src: '<%= globalConfig.src %>/sprite/*.png',
                 dest: '<%= globalConfig.src %>/images/sprites/spritesheet.png',
-                destCss: '<%= globalConfig.src %>/less/icon.less'
+                destCss: '<%= globalConfig.src %>/less/sprite.less'
             }
         },
         imagemin: {
@@ -161,7 +160,7 @@ module.exports = function(grunt) {
                 files: ['<%= globalConfig.src %>/**/*']
             },
             less: {
-                files : ['<%= globalConfig.src %>/less/*.less'],
+                files : ['<%= globalConfig.src %>/less/**/*.less'],
                 tasks : ['css']
             },
             js: {
