@@ -88,9 +88,9 @@ module.exports = function(grunt) {
         jade: {
             compile: {
                 files: [{
-                    cwd: 'src',
+                    cwd: '<%= globalConfig.src %>',
                     src: ['**/*.jade'],
-                    dest: 'dist',
+                    dest: '<%= globalConfig.dist %>',
                     expand: true,
                     ext: '.html'
                 }]
@@ -120,9 +120,9 @@ module.exports = function(grunt) {
         less : {
             compile: {
                 files: [{
-                    cwd: 'src/less',
+                    cwd: '<%= globalConfig.src %>/less',
                     src: '*.less',
-                    dest: 'src/less',
+                    dest: '<%= globalConfig.src %>/less',
                     expand: true,
                     ext: '.css'
                 }]
@@ -158,7 +158,7 @@ module.exports = function(grunt) {
                 options: {
                     livereload: true
                 },
-                files: ['dist/**/*'],
+                files: ['<%= globalConfig.src %>/**/*']
             },
             less: {
                 files : ['<%= globalConfig.src %>/less/*.less'],
@@ -177,7 +177,7 @@ module.exports = function(grunt) {
             server: {
                 options: {
                     port: 3000,
-                    base: 'dist',
+                    base: '<%= globalConfig.dist %>',
                     open: true
                 }
             }

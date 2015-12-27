@@ -1,3 +1,7 @@
 .container {
   width: 600px;
 }
+.header {
+  background-color: #000000;
+  color: #ffffff;
+}
