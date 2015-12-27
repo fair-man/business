@@ -1,0 +1,26 @@
+{
+  "name": "grunt3",
+  "version": "0.0.1",
+  "description": "test grunt3",
+  "authors": [
+    "Ruslan Tukalenko"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "libraries",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "latest",
+    "bootstrap": "latest",
+    "html5shiv": "latest",
+    "respond": "latest"
+  },
+  "main": "",
+  "moduleType": [],
+  "license": "",
+  "homepage": ""
+}

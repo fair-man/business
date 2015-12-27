@@ -1,0 +1,22 @@
+{
+  "name": "grunt-start-base",
+  "version": "0.0.1",
+  "description": "This is start basis for development",
+  "author": "Ruslan Tukalenko",
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-jade": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-mkdir": "latest",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-imagemin" : "latest",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-spritesmith": "latest",
+    "grunt-contrib-connect": "latest"
+  }
+}
