@@ -82,8 +82,8 @@ module.exports = function(grunt) {
              }
         },
         clean : {
-            js : ['<%= globalConfig.src %>/js/app.js', '<%= globalConfig.dist %>/js/<%= globalConfig.projectName%>.min.js'],
-            css : ['<%= globalConfig.src %>/less/styles.css', '<%= globalConfig.dist %>/css/<%= globalConfig.projectName%>.min.css']
+            js : ['<%= globalConfig.src %>/js/app.js', '<%= globalConfig.dist %>/js/<%= globalConfig.project_name%>.min.js'],
+            css : ['<%= globalConfig.src %>/less/styles.css', '<%= globalConfig.dist %>/css/<%= globalConfig.project_name%>.min.css']
         },
         jade: {
             compile: {
