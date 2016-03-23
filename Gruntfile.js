@@ -9,7 +9,8 @@ module.exports = function(grunt) {
         scripts : 'js',           /* папка для готовых скриптов js */
         src : 'src',              /* папка с исходными кодами js, less , etc. */
         dist : 'dist',            /* папка для продакшен*/
-        bower_path : 'libraries'  /* папка где хранятся библиотеки jquery, bootstrap, SyntaxHighlighter, etc. */
+        bower_path : 'libraries',  /* папка где хранятся библиотеки jquery, bootstrap, SyntaxHighlighter, etc. */
+        project_name : 'name'
     };
 
     grunt.initConfig({
@@ -81,8 +82,8 @@ module.exports = function(grunt) {
              }
         },
         clean : {
-            js : ['<%= globalConfig.src %>/js/app.js', '<%= globalConfig.dist %>/js/app.min.js'],
-            css : ['<%= globalConfig.src %>/less/styles.css', '<%= globalConfig.dist %>/css/styles.min.css']
+            js : ['<%= globalConfig.src %>/js/app.js', '<%= globalConfig.dist %>/js/<%= globalConfig.projectName%>.min.js'],
+            css : ['<%= globalConfig.src %>/less/styles.css', '<%= globalConfig.dist %>/css/<%= globalConfig.projectName%>.min.css']
         },
         jade: {
             compile: {
