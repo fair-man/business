@@ -4,8 +4,8 @@
 dist
 libraries
 node_modules
-src/fonts
-src/images
-src/js
-src/sprite
-src/tmp
+app/fonts
+app/images
+app/js
+app/sprite
+app/tmp

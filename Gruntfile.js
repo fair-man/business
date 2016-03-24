@@ -7,10 +7,9 @@ module.exports = function(grunt) {
         styles : 'css',           /* папка для готовый файлов less стилей */
         fonts : 'fonts',          /* папка для шрифтов */
         scripts : 'js',           /* папка для готовых скриптов js */
-        src : 'src',              /* папка с исходными кодами js, less , etc. */
+        src : 'app',              /* папка с исходными кодами js, less , etc. */
         dist : 'dist',            /* папка для продакшен*/
-        bower_path : 'libraries',  /* папка где хранятся библиотеки jquery, bootstrap, SyntaxHighlighter, etc. */
-        project_name : 'name'
+        bower_path : 'libraries' /* папка где хранятся библиотеки jquery, bootstrap, SyntaxHighlighter, etc. */
     };
 
     grunt.initConfig({
@@ -58,7 +57,8 @@ module.exports = function(grunt) {
                     cwd: '<%= globalConfig.bower_path %>/bootstrap/less/',
                     src : ['**'],
                     dest : '<%= globalConfig.src %>/less/bootstrap/'
-                },{
+                },
+                    {
                     expand : true,
                     flatten : true,
                     src : '<%= globalConfig.bower_path %>/respond/dest/respond.min.js',
@@ -72,31 +72,27 @@ module.exports = function(grunt) {
              all: {
                  options: {
                      create: [
-                         '<%= globalConfig.src %>/fonts',
-                         '<%= globalConfig.src %>/images',
-                         '<%= globalConfig.src %>/js',
-                         '<%= globalConfig.src %>/tmp',
-                         '<%= globalConfig.src %>/sprite'
+                         '<%= globalConfig.src %>/fonts', /*папка со шрифтами*/
+                         '<%= globalConfig.src %>/images', /*папка с картинками*/
+                         '<%= globalConfig.src %>/js', /*папка с javascript*/
+                         '<%= globalConfig.src %>/tmp', /*папка с временных файлов*/
+                         '<%= globalConfig.src %>/sprite' /*папка для картинок спрайта*/
                      ]
                  }
              }
         },
         clean : {
-            js : ['<%= globalConfig.src %>/js/app.js', '<%= globalConfig.dist %>/js/<%= globalConfig.project_name%>.min.js'],
-            css : ['<%= globalConfig.src %>/less/styles.css', '<%= globalConfig.dist %>/css/<%= globalConfig.project_name%>.min.css']
+            js : ['<%= globalConfig.src %>/js/app.js', '<%= globalConfig.dist %>/js/app.min.js'],
+            css : ['<%= globalConfig.src %>/less/styles.css', '<%= globalConfig.dist %>/css/style.min.css']
         },
         jade: {
             compile: {
-                files: [{
-                    cwd: '<%= globalConfig.src %>',
-                    src: ['**/*.jade'],
-                    dest: '<%= globalConfig.dist %>',
-                    expand: true,
-                    ext: '.html'
-                }]
-            },
-            options: {
-                pretty: true
+                options: {
+                    pretty: true
+                },
+                files: {
+                    'dist/index.html': 'app/block/layouts/base.jade'
+                }
             }
         },
         sprite:{
@@ -131,7 +127,7 @@ module.exports = function(grunt) {
         cssmin: {
             production: {
                 files: {
-                    '<%= globalConfig.dist %>/css/style.min.css': '<%= globalConfig.src %>/less/*.css'
+                    '<%= globalConfig.dist %>/css/app.min.css': '<%= globalConfig.src %>/less/*.css'
                 }
             }
         },
@@ -162,15 +158,15 @@ module.exports = function(grunt) {
             },
             less: {
                 files : ['<%= globalConfig.src %>/less/**/*.less'],
-                tasks : ['css']
+                tasks : ['css_compile']
             },
             js: {
                 files : ['<%= globalConfig.src %>/js/*.js'],
-                tasks : ['js']
+                tasks : ['js_compile']
             },
             jade: {
-                files: ['<%= globalConfig.src %>/*.jade'],
-                tasks: ['jade']
+                files: ['<%= globalConfig.src %>/block/**/*.jade'],
+                tasks: ['jade_compile']
             }
         },
         connect: {
@@ -200,11 +196,15 @@ module.exports = function(grunt) {
 
     // 1. Default task(s).
     grunt.registerTask('default', ['copy:main', 'mkdir']);
-    grunt.registerTask('basis', ['sprite', 'copy:fonts', 'css', 'js', 'imagemin', 'jade']);
+    grunt.registerTask('basis', ['copy:fonts' ,'jade_compile', 'css_compile', 'js_compile']);
+    grunt.registerTask('sprite');
+    grunt.registerTask('imagemin');
+
     // Working task(s).
-    grunt.registerTask('css', ['clean:css', 'less', 'cssmin']);
-    grunt.registerTask('js', ['clean:js', 'concat', 'uglify']);
+    grunt.registerTask('jade_compile', ['jade']);
+    grunt.registerTask('css_compile', ['clean:css', 'less', 'cssmin']);
+    grunt.registerTask('js_compile', ['clean:js', 'concat', 'uglify']);
 
     // 2. Use for development
-    grunt.registerTask('work', ['connect', 'basis', 'watch']);
+    grunt.registerTask('work', ['connect', 'watch']);
 };
