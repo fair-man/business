@@ -1,35 +1,22 @@
-@import "bootstrap/bootstrap.less";
 @import "variables.less";
+@import "mixins.less";
+
+html {
+  font-size: 62.7%;
+  font-family: @font-base;
+}
 
 .container {
-  width: 600px;
+  width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
 }
 
-.header {
-  background-color: @color-black;
-  color: @color-white;
-
-  .header__title {
-    font-size: 36px;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
+.left-block {
+  float: left;
 }
 
-.main__description-list {
-
-  .main__description-list_item {
-    list-style-type: none;
-    position: relative;
-
-    &:before {
-      font-family: 'Glyphicons Halflings';
-      content: '\e013';
-      position: absolute;
-      left: -25px;
-      color: @color-red;
-    }
-  }
+.right-block {
+  float: right;
 }

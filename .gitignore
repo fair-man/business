@@ -1,11 +1,5 @@
 .idea
 .git
 .hg
-dist
 libraries
 node_modules
-app/fonts
-app/images
-app/js
-app/sprite
-app/tmp
