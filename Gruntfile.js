@@ -198,7 +198,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['copy:main', 'mkdir']);
     grunt.registerTask('basis', ['copy:fonts' ,'jade_compile', 'css_compile', 'js_compile']);
     grunt.registerTask('sprite');
-    grunt.registerTask('imagemin');
+    grunt.registerTask('image', ['imagemin']);
 
     // Working task(s).
     grunt.registerTask('jade_compile', ['jade']);

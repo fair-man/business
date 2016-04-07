@@ -1,0 +1,47 @@
+@import "variables.less";
+@import "mixins.less";
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.btn {
+  .line-height(49);
+  .border-radius(7px);
+  .font-size(16);
+
+  height: 49px;
+  color: transparent;
+  text-transform: uppercase;
+  background: transparent;
+  font-weight: 700;
+  padding-left: 23px;
+  padding-right: 23px;
+  text-align: center;
+  display: inline-block;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.btn-blue {
+  color: @color-white;
+  background: @color-blue;
+}
+
+.btn-orange {
+  .border-radius(1px);
+  .font-size(14);
+  .line-height(46);
+
+  font-family: @font-lato;
+  font-weight: 400;
+  height: 46px;
+  color: @color-white;
+  background: @color-btn-yellow;
+  border: 1px solid #cb8d21;
+  padding-left: 30px;
+  padding-right: 30px;
+}

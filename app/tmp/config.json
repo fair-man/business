@@ -13,18 +13,6 @@
       "src": "fontawesome"
     },
     {
-      "uid": "7bf14281af5633a597f85b061ef1cfb9",
-      "css": "angle-right",
-      "code": 59393,
-      "src": "fontawesome"
-    },
-    {
-      "uid": "f3f90c8c89795da30f7444634476ea4f",
-      "css": "angle-left",
-      "code": 59394,
-      "src": "fontawesome"
-    },
-    {
       "uid": "31951fbb9820ed0690f675b3d495c8da",
       "css": "chat-empty",
       "code": 59395,
@@ -171,6 +159,18 @@
       "search": [
         "person"
       ]
+    },
+    {
+      "uid": "d870630ff8f81e6de3958ecaeac532f2",
+      "css": "left-open",
+      "code": 59393,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "399ef63b1e23ab1b761dfbb5591fa4da",
+      "css": "right-open",
+      "code": 59394,
+      "src": "fontawesome"
     }
   ]
 }
